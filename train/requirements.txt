@@ -1,0 +1,4 @@
+torch==2.0.0
+torchvision==0.15.1
+mlflow==2.12.1
+scikit-learn

@@ -1,0 +1,6 @@
+torch==2.0.0
+torchvision==0.15.1
+torchserve==0.8.2
+torch-model-archiver==0.8.2
+mlflow==2.12.1
+Pillow
