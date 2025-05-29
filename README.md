@@ -64,7 +64,7 @@ print("state_dict saved. → serve/mnist_model_state.pt")
 ```
 
 ## Web
-![png](web.png)
+![png](assets/web.png)
 Web adress: http://127.0.0.1:8000/
 ### Initate fastapi APP
 ```bash
