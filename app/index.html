@@ -10,7 +10,7 @@ input[type=file]{margin-bottom:15px}
 </style>
 </head>
 <body>
-<h2>MNIST 모델 예측 (TorchServe)</h2>
+<h2>MNIST Handwritten Digit Prediction (TorchServe)</h2>
 
 <form id="uploadForm">
   <input type="file" id="file" accept="image/png,image/jpeg" required><br>
@@ -31,8 +31,8 @@ document.getElementById("uploadForm").addEventListener("submit", async (e)=>{
   const res = await fetch("/predict", {method:"POST", body: formData});
   const data = await res.json();
   document.getElementById("result").textContent =
-    res.ok ? `예측 결과: ${data.digit}` :
-             `오류 (${res.status}): ${JSON.stringify(data)}`;
+    res.ok ? `Prediction: ${data.digit}` :
+             `Error (${res.status}): ${JSON.stringify(data)}`;
 });
 </script>
 </body>
