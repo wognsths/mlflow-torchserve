@@ -8,13 +8,10 @@ pillow
 fastapi
 uvicorn
 
-# --- TorchServe ---
 torchserve
 torch-model-archiver
 
-# --- MLflow 관련 (모델 추적 등) ---
 mlflow
 
-# --- 기타 유틸 (선택) ---
 python-multipart
 nvgpu
