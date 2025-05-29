@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Hand-drawn Digit Predict</title>
+<style>
+body{font-family:sans-serif;padding:30px}
+input[type=file]{margin-bottom:15px}
+#result{margin-top:20px;font-size:24px;font-weight:bold}
+</style>
+</head>
+<body>
+<h2>MNIST 모델 예측 (TorchServe)</h2>
+
+<form id="uploadForm">
+  <input type="file" id="file" accept="image/png,image/jpeg" required><br>
+  <button type="submit">Predict</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("uploadForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const fileInput = document.getElementById("file");
+  if (!fileInput.files.length) return;
+
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+
+  const res = await fetch("/predict", {method:"POST", body: formData});
+  const data = await res.json();
+  document.getElementById("result").textContent =
+    res.ok ? `예측 결과: ${data.digit}` :
+             `오류 (${res.status}): ${JSON.stringify(data)}`;
+});
+</script>
+</body>
+</html>
